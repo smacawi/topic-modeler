@@ -45,7 +45,7 @@ def build_model(data, num_topics, include_vis= False):
         vis = pyLDAvis.prepare(btm.phi_wz.T, biterm_model, np.count_nonzero(X, axis=1), vocab, np.sum(X, axis=0))
         pyLDAvis.save_html(p, 'biterm_{}.html'.format(num_topics))
 
-    return biterm_model
+    return btm, biterm_model
 
 def top_vocab (model_file):
     '''
@@ -61,6 +61,7 @@ def top_vocab (model_file):
     for i in range(len(btm.item()['top_words'])):
         df['topic_{}'.format(i)] = pd.Series(btm.item()['top_words'][i])
     df.to_csv('btm_top_words_{}.csv'.format(len(btm.item()['top_words'])))
+    return df.T.values.tolist()
 
 def get_best(data, lo, hi, step):
     '''

@@ -11,3 +11,7 @@ pip install -r requirements.txt
 - `/models/`: Separated by biterm and LDA, includes methods to retrieve top vocabulary words and coherence scores
 - `/preprocessing/`: Handles text preprocessing
 - `/util/`: Extra utility methods
+
+Scripts in main directory:
+- `run_model.py`: Sample code to train LDA/Biterm/Guided LDA models
+- `get_coherence.py`: Retrieves coherence metrics for LDA and Biterm models. Topic coherence models from implementation offered by Gensim [here](https://radimrehurek.com/gensim/models/coherencemodel.html).
